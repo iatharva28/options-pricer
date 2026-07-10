@@ -78,6 +78,14 @@ print(f"AAPL ATM 30d IV: {surface.query(strike=md.spot, T=30/365):.2%}")
 iv = implied_vol(market_price=4.76, S=42, K=40, T=0.5, r=0.10, option_type="call")
 ```
 
+### Generate every chart at once
+
+```bash
+python examples/make_all_charts.py
+```
+
+Writes payoff diagrams, Greeks profile, MC paths, binomial convergence, and (if you have internet) an interactive 3D IV surface into `outputs/`. The live-data section is wrapped in a try/except so the static charts are produced even if yfinance is unreachable.
+
 ## Tests
 
 ```bash
@@ -110,6 +118,8 @@ options-pricer/
 │   ├── data.py                # yfinance + FRED fetcher
 │   └── plots.py               # matplotlib + plotly charts → outputs/
 ├── tests/
+├── examples/
+│   └── make_all_charts.py     # regenerate every chart into outputs/
 ├── notebooks/
 │   ├── 01_full_demo.ipynb
 │   └── 02_validation_report.ipynb
