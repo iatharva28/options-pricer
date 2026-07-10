@@ -130,13 +130,6 @@ options-pricer/
 
 I deliberately kept this scoped to a library. There is no CLI, no web server, no REST API, no persistent cache. American options aren't supported (no early-exercise), historical vol is close-to-close only (no GARCH / Parkinson), and the vol surface is implied vol only — no local vol / Dupire. All stochastic functions take a `seed` parameter (default `42`) so tests are reproducible.
 
-## TODO
-
-- [ ] American options via Black's approximation (or a proper tree with early-exercise)
-- [ ] Dividend yield auto-estimation from yfinance (right now `q` defaults to 0)
-- [ ] GARCH(1,1) historical vol as an alternative estimator
-- [ ] Add a couple of test cases that hit the live yfinance + FRED path (currently marked `network`, not run in CI)
-- [ ] Type-check the public surface with mypy / pyright
 
 ## License
 
